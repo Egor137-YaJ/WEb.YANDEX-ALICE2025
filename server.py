@@ -93,6 +93,12 @@ def handle_dialog(res, req):
             res['response']['card']['title'] = 'Этот город я знаю.'
             res['response']['card']['image_id'] = random.choice(cities[city])
             res['response']['text'] = 'Я угадал!'
+            res['response']['buttons'] = [
+                {
+                    'title': city.title(),
+                    'hide': True
+                } for city in cities
+            ]
         # если не нашел, то отвечает пользователю
         # 'Первый раз слышу об этом городе.'
         else:
